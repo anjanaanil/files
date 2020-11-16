@@ -42,7 +42,10 @@ void main() {
 
 
 	print_array(test,SIZE); // prints array
+	
 	print_statistics(test,SIZE); // prints all statistical information. Calls the function to find median mean minimum and maximum values
+	printf("\nThe sorted array: \n");
+	print_array(test,SIZE);//array already sorted in median function
 
 
 
