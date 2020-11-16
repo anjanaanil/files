@@ -49,34 +49,92 @@ void main() {
 }
 
 unsigned char print_array(unsigned char* A, unsigned int B){ //function to print array
+	int i;
+	printf("The array : \n");
+	for(i=0;i<B;i++){
+		printf("%d\t",A[i]);
+	}
+	return 0;
 	
 }
 
 
 unsigned char find_mean(unsigned char* A, unsigned int B){// function to find mean
+	int i,sum=0;
+	for(i=0;i<B;i++){
+		sum +=A[i];
+	}
+	printf("%d\n",sum/B);
+	return 0;
 	
 }
 
 unsigned char find_minimum(unsigned char* A,unsigned int B){ //function to find minimum
+    	int i;
+	int j = 2^8;
+	for(i=0;i<B;i++){
+		if(A[i]<j){
+			j= A[i];
+		}
+	}
+	printf("%d\n",j);
+	return 0;
     
 }
 
 unsigned char find_maximum(unsigned char* A,unsigned int B){ // function to find maximum
-	
+	int i,j = 2^(-8);
+	for(i=0;i<B;i++){
+		if(A[i]>j){
+			j= A[i];
+		}
+	}
+	printf("%d\n",j);
+	return 0;
 }
 
 
-unsigned char sort_array(unsigned char *A,unsigned int B){// function to sort array
-    
+unsigned char sort_array(unsigned char *A,unsigned int B){// function to sort array using bubble sort
+    int i,j;
+    char temp;
+	for(i=0;i<B;i++){
+		for(j = 0; j< B-i-1;j++){
+			if(A[j+1]>A[j]){
+                temp = A[j+1];
+                A[j+1] = A[j];
+                A[j] = temp;}
+        	}
+	}
+	return 0;
 }
 
 unsigned char find_median(unsigned char* A,unsigned int B){// function to find median
+	sort_array(A,B);
+	if(B%2==0){
+        B=B/2;
+
+        }
+	else{
+        B =(B+1)/2;
+
+        }
+    	printf("%d\n",A[B]);
+	return 0;
     
 }
 
 
 unsigned char print_statistics(unsigned char* A,unsigned int B){ // function to print statistics
-    
+	printf("\nThe statistics shows that..\n");
+     	printf("The median is : ");
+	find_median(A, B);
+	printf("The mean is : ");
+	find_mean(A, B);
+	printf("The maximum value is : ");
+	find_maximum(A, B);
+	printf("The minimum value is : ");
+	find_minimum(A, B);
+	return 0;    
 }
 
 
